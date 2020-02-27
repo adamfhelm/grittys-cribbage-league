@@ -1,4 +1,5 @@
-# [View This Code Live] (https://tradersoles.com:8080)
+# View Live: 
+ [cribbage league tracker](http://tradersoles.com:8080/)
 
 # grittys-cribbage-league
 Cribbage League Applicaiton
