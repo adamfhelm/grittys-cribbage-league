@@ -1,3 +1,5 @@
+# [View This Code Live] (https://tradersoles.com:8080)
+
 # grittys-cribbage-league
 Cribbage League Applicaiton
 Prototype to convert paper tracking of cribbage leagues to cloud based tracking. 
