@@ -10,10 +10,10 @@ Written in Vue.js, MongoDB, Express.js, and Node.js
 
 ## installation Steps (if applicable)
 
-1.) Start MongoDB running locally with `mongod`
-2.) Clone the Repo
-3.) cd server
-4.) npm run start
-5.) cd client
-6.) npm run serve
-7.) Go to http://localhst:8080
+1. Start MongoDB running locally with `mongod`
+2. Clone the Repo
+3. cd server
+4. npm run start
+5. cd client
+6. npm run serve
+7. Go to http://localhst:8080
