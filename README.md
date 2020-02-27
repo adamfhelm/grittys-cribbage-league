@@ -16,4 +16,4 @@ Written in Vue.js, MongoDB, Express.js, and Node.js
 4. npm run start
 5. cd client
 6. npm run serve
-7. Go to http://localhst:8080
+7. Go to http://localhost:8080
