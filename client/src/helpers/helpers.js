@@ -52,6 +52,10 @@ export const api = {
         const res = await axios.get(createScheduleURL, payload);    
         return res.data;  
     }),
+    getAllDates: handleError(async payload => {    
+        const res = await axios.get(createScheduleURL, payload);    
+        return res.data;  
+    }),
     updateWeek: handleError(async payload => {   
         const res = await axios.put(updateWeekURL, payload);    
         //console.log("heres the payload", payload ) 

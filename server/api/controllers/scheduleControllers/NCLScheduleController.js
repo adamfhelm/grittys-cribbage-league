@@ -1,7 +1,7 @@
 
 
 exports.getAllWeeks = (req, res) => {
-  Schedule.find({}, (err, schedule) => {
+  Schedule.aggregate([{$sort: {gameDate:1}}], (err, schedule) => {
     if (err) res.send(err);
     res.json(schedule);
   });

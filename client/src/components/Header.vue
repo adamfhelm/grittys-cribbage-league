@@ -16,7 +16,7 @@
       <tr>
        <td></td>
        <td></td>
-        <td v-for="(number, i) in totalWeeks" :key="i">{{ number.gameDate }}</td>
+        <td v-for="(number, i) in totalWeeks" :key="i">{{ number.gameDate.substring(0,10) }}</td>
         <!-- <td>20-Jan</td>
         <td>27-Jan</td>
         <td>03-Feb</td>
@@ -37,12 +37,14 @@ import { api } from '../helpers/helpers.js'
      name: "schedule-header",
    data() {
     return { 
-      totalWeeks: []
+      totalWeeks: [],
+      allDates: []
     };
   },
  async mounted() {
     this.totalWeeks = await api.getTotalWeeks()
-    console.log("here is the totalWeeks", this.totalWeeks)
+    this.allDates = await api.getAllDates()
+    
   }
  }
 </script>
