@@ -23,14 +23,16 @@ export default {
           schedule.weekId = 1;
           schedule.gameDate = firstDate;
           const res = await api.createSchedule(schedule);
-          this.$router.push(`/schedule/${res.schedule._id}`);
+          console.log(res);
+          //this.$router.push(`/schedule/${res.schedule._id}`);
         }
-        if (week > 1) {
+        else if (week > 1) {
           //console.log("condition greater week 1", week, startDate, days);
           schedule.gameDate = startDate.setDate(startDate.getDate() + days);
           schedule.weekId = week;
           const res = await api.createSchedule(schedule);
-          this.$router.push(`/schedule/${res.schedule._id}`);
+          console.log(res);
+          //this.$router.push(`/schedule/${res.schedule._id}`);
         }
 
         // console.log(schedule.weekId);
