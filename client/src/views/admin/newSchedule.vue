@@ -16,10 +16,13 @@ export default {
   },
   methods: {
     createOrUpdate: function(weeksArr, firstDate, startDate, days) {
-      let resFlag = false;
+    
+      
+      
+      
       weeksArr.forEach(async week => {
-       let pass=0
-        //let curDate = new Date();
+     
+        
         let schedule = {}
         if (week === 1) {
           schedule.weekId = 1;
@@ -30,22 +33,9 @@ export default {
           schedule.gameDate = startDate.setDate(startDate.getDate() + days);
           schedule.weekId = week; 
         }
-          if (pass===0) {
-          const res = await api.createSchedule(schedule);   
-          this.$router.push(`/acl-schedule/${res.schedule._id}`);
-          if(res) {
-          resFlag=true;
-          pass++;
-            }
-          }
-          if(pass>=1 && resFlag===true) {
-             const res = await api.createSchedule(schedule);   
-             this.$router.push(`/acl-schedule/${res.schedule._id}`);
-             if(res) {
-               resFlag=true;
-               pass++;
-             }
-          }
+          const res = await api.createSchedule(schedule)   
+          .then(this.$router.push(`/acl-schedule/${res.schedule._id}`));
+        
 
           
         // console.log(schedule.weekId);
