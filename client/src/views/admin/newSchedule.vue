@@ -34,7 +34,8 @@ export default {
           schedule.weekId = week; 
         }
           const res = await api.createSchedule(schedule)   
-          .then(this.$router.push(`/acl-schedule/${res.schedule._id}`));
+           console.log(res)
+           ///this.$router.push(`/acl-schedule/${res.schedule._id}`);
         
 
           
