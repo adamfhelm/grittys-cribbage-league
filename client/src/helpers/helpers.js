@@ -20,10 +20,6 @@ const handleError = fn => (...params) =>
     fn(...params).catch(error => {
         vm.flash(`${error.response.status}: ${error.response.statusText}`, 'error');
     });
-const sendSchedule = handleError(async payload => {    
-        const res = await axios.post(createScheduleURL, payload);    
-        return res.data;  
-    });
 
 export const api = {
 
@@ -48,11 +44,10 @@ export const api = {
         const res = await axios.post(rosterURL, payload);    
         return res.data;  
     }),
-    createSchedule: (async function(schedule) {
-        let returnData = await sendSchedule(schedule)
-        return returnData
+    createSchedule: handleError(async payload => {    
+        const res = await axios.post(createScheduleURL, payload);    
+        return res.data;  
     }),
-    
     getTotalWeeks: handleError(async payload => {    
         const res = await axios.get(createScheduleURL, payload);    
         return res.data;  
