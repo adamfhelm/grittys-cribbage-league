@@ -17,22 +17,39 @@ export default {
   methods: {
     createOrUpdate:  function(weeksArr, firstDate, startDate, days) {
       
-      const arrLength = weeksArr.length
-      for (var i = 1; i <= arrLength; i++) {
-         let schedule = {}
-        if (i == 1) {
-          schedule.weekId = 1;
-          schedule.gameDate = firstDate;
-        }
-        if (i > 1) {
-          //console.log("condition greater week 1", week, startDate, days);
-          schedule.gameDate = startDate.setDate(startDate.getDate() + days);
-          schedule.weekId = i; 
-        }
-          const res =  api.createSchedule(schedule);   
-          console.log(res)
-          //this.$router.push(`/acl-schedule/${res.schedule._id}`);
+      const newSchedule = {
+        weeksArr: weeksArr,
+        firstDate: firstDate,
+        startDate: startDate,
+        days: days
       }
+     
+     const res =  api.createSchedule(newSchedule);   
+          if(res){
+          console.log(res)
+          }
+    }
+  }
+};
+
+ // const arrLength = weeksArr.length
+      // for (var i = 1; i <= arrLength; i++) {
+      //    let schedule = {}
+      //   if (i == 1) {
+      //     schedule.weekId = 1;
+      //     schedule.gameDate = firstDate;
+      //   }
+      //   if (i > 1) {
+      //     //console.log("condition greater week 1", week, startDate, days);
+      //     schedule.gameDate = startDate.setDate(startDate.getDate() + days);
+      //     schedule.weekId = i; 
+      //   }
+      //     const res =  api.createSchedule(schedule);   
+      //     if(res){
+      //     console.log(res)
+      //     }
+      //     //this.$router.push(`/acl-schedule/${res.schedule._id}`);
+      // }
       
       // weeksArr.forEach(async week => {
       //   let schedule = {}
@@ -48,7 +65,6 @@ export default {
       //     const res = await api.createSchedule(schedule);   
       //     this.$router.push(`/acl-schedule/${res.schedule._id}`);
       // });
-    }
-  }
-};
 </script>
+
+
