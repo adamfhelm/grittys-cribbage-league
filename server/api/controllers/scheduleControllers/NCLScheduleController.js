@@ -36,40 +36,26 @@ exports.deleteWeek = (req, res) => {
   });
 };
 
-
-// exports.create = function(req, res) {
-//   var shoe = new Shoe(req.body);
-//   //console.log("I am here", shoe);
-//   shoe.user = req.user;
-//   shoe.userProfileImageURL = req.user.profileImageURL;
-//   shoe.contactemail = req.user.email;
-
-//   shoe.save(function(err) {
-//     if (err) {
-//       return res.status(400).send({
-//         message: errorHandler.getErrorMessage(err)
-//       });
-//     } else {
-//       res.jsonp(shoe);
-//     }
-//   });
-// };
-const saveWeek = (schedule,res) => {
+const saveWeek = (schedule,res, stop) => {
   const newScheduleWeek = new Schedule(schedule);
   newScheduleWeek.save((err, week) => {
-    //if (err) res.send(err);
-    //res.json({ message: 'Schedule Added', week: week });
-    //console.log(`Team Added: ${team.player1} and ${team.player2} Added`);
+    if (err) res.send(err);
+    if(stop) {
+      console.log("I'm sending something", week)
+      res.json({ message: 'Schedule Added', week: week });
+    }
+    console.log(`Week Added: ${schedule.weekId} and ${schedule.gameDate} Added`);
   });
 }
-
 exports.addNewSchedule = (req, res) => {
   const scheduleObj = req.body;
-  console.log("request body", req.body)
+  //onsole.log("request body", req.body)
+  const weeksArrLength = req.body.weeksArr.length;
+  const stop = true;
   //let gameDate = new Date(scheduleObj.startDate).setDate(new Date(scheduleObj.startDate).getDate() + scheduleObj.days);
   let gameDate = new Date();
   scheduleObj.weeksArr.forEach(async (week) => {
-    console.log("week",week)
+   // console.log("week",week)
     newScheduleWeek = await new Schedule(req.body);
       if(week === 1) {
         gameDate = new Date(scheduleObj.startDate).setDate(new Date(scheduleObj.startDate).getDate());  
@@ -77,29 +63,15 @@ exports.addNewSchedule = (req, res) => {
         gameDate = new Date(scheduleObj.startDate).setDate(new Date(scheduleObj.startDate).getDate() + (scheduleObj.days*(week - 1) ));
       }
       newScheduleWeek.gameDate = new Date(gameDate).toUTCString()
-      console.log("Date", newScheduleWeek.gameDate)
+      //console.log("Date", newScheduleWeek.gameDate)
       newScheduleWeek.weekId = week;
-
+    if(week !== weeksArrLength) {
     saveWeek(newScheduleWeek,res);
+    } else {
+      saveWeek(newScheduleWeek,res, stop);
+    }
   })
 }
-
-  
-  // const newScheduleWeek = new Schedule(req.body);
-  // newScheduleWeek.gameDate = req.body.gameDate;
-  // newScheduleWeek.weekId = req.body.weekId;
-  // newScheduleWeek.save(function(err, week) {
-  //   if (err && res) {
-  //     return res.status(400).send({
-  //       message: errorHandler.getErrorMessage(err)
-  //     });
-  //   } else if(res) {
-  //     res.jsonp({message: 'Week Added', week: week});
-  //     console.log(`Week ${week.weekId} added`);
-  //   }
-  // });
-
-
 exports.deleteAll = (req, res) => {
   Schedule.remove({}, err => {
     if (err) res.send(err);

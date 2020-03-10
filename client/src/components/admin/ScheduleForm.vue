@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit">
+  <form action="#" @submit.prevent="onSubmit">
     <p v-if="errorsPresent" class="error">Please fill out all fields!</p>
 
     <div class="ui labeled input fluid">
