@@ -9,24 +9,16 @@
          <router-link to="/roster" exact class="item">
             <i class="users icon"></i> Teams
           </router-link>
-         <sui-dropdown text="Schedule" button pointing>
-      <sui-dropdown-menu>
-        <sui-dropdown-item><router-link :to="{name: 'aclSchedule'}" class="dropdown">ACL</router-link></sui-dropdown-item>
+       <router-link to="/schedule" exact class="item">
+            <i class="calendar icon"></i> Schedule
+          </router-link>
         <!-- <sui-dropdown-item><router-link :to="{name: 'nclSchedule'}" class="dropdown">NCL</router-link></sui-dropdown-item> -->
-      </sui-dropdown-menu>
-    </sui-dropdown>
     <sui-dropdown text="Admin" button pointing>
       <sui-dropdown-menu>
         <sui-dropdown-item>
           <router-link 
           :to="{name: 'scheduleSetup'}" class="dropdown">
           Schedule Setup
-          </router-link>
-        </sui-dropdown-item>
-        <sui-dropdown-item>
-          <router-link 
-          :to="{name: 'addWeek'}" class="dropdown">
-          Add Weekly Results
           </router-link>
         </sui-dropdown-item>
       </sui-dropdown-menu>
@@ -36,17 +28,14 @@
     </div>
     <div class="ui text container">
        <flash-message class="myFlash"></flash-message>
-    <div class="ui one column grid">
-      <div class="column">
         <router-view />
       </div>
-    </div>
-    </div>
+    
   </div>
 </template>
 <script>
 export default { 
-  name: "app" 
+  name: "app", 
   };
 </script>
 <style>

@@ -45,8 +45,12 @@
       </div>
       <input type="number" placeholder="Enter Team Pegs" v-model="team.pegs" />
     </div>
-
-    <button class="positive ui button">Submit</button>
+     <div class="ui one column grid">
+    <button class="green ui button">Submit</button>
+    <router-link :to="{ name: 'editTeamSchedule', params: { id: this.$route.params.id }}">
+    <button class="yellow ui button">Edit Schedule</button>
+    </router-link>
+     </div>
   </form>
 </template>
 
@@ -82,9 +86,9 @@ export default {
         || this.team.pegs === ''
         || this.team.league === '') 
         {
-        this.errorsPresent = true;
+        this.errorsPresent = true
       } else {
-        this.$emit('createOrUpdate', this.team);
+        this.$emit('createOrUpdate', this.team)
       }
     }
   }

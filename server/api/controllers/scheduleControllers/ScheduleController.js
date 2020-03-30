@@ -1,5 +1,3 @@
-const errorHandler = require ('./errorHandler');
-
 exports.getAllWeeks = (req, res) => {
   Schedule.aggregate([{$sort: {gameDate:1}}], (err, schedule) => {
     if (err) res.send(err);
@@ -35,7 +33,7 @@ exports.deleteWeek = (req, res) => {
     });
   });
 };
-
+// Create schedule weeks.
 const saveWeek = (schedule,res, stop) => {
   const newScheduleWeek = new Schedule(schedule);
   newScheduleWeek.save((err, week) => {
@@ -49,22 +47,24 @@ const saveWeek = (schedule,res, stop) => {
 }
 exports.addNewSchedule = (req, res) => {
   const scheduleObj = req.body;
-  //onsole.log("request body", req.body)
   const weeksArrLength = req.body.weeksArr.length;
-  const stop = true;
-  //let gameDate = new Date(scheduleObj.startDate).setDate(new Date(scheduleObj.startDate).getDate() + scheduleObj.days);
+  const stop = true; //flag to notify saveWeek it's time to send the res.
   let gameDate = new Date();
+  // loop over array creating a document in mongo for each week in the schedule.
   scheduleObj.weeksArr.forEach(async (week) => {
-   // console.log("week",week)
     newScheduleWeek = await new Schedule(req.body);
       if(week === 1) {
         gameDate = new Date(scheduleObj.startDate).setDate(new Date(scheduleObj.startDate).getDate());  
       } else {
         gameDate = new Date(scheduleObj.startDate).setDate(new Date(scheduleObj.startDate).getDate() + (scheduleObj.days*(week - 1) ));
       }
+      // got to set the field to date based on it's UTC string
       newScheduleWeek.gameDate = new Date(gameDate).toUTCString()
       //console.log("Date", newScheduleWeek.gameDate)
       newScheduleWeek.weekId = week;
+   
+    // pass each week and process it until the end of the array is reached.
+    
     if(week !== weeksArrLength) {
     saveWeek(newScheduleWeek,res);
     } else {

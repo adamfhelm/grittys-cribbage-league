@@ -17,7 +17,8 @@ const RosterSchema = new Schema(
         league: {
             type: String,
             required: 'Player must belong to a league'
-        }   
+        },
+        schedule: Array   
 	},  
 	{ collection: 'roster' });
 

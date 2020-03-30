@@ -1,9 +1,14 @@
 // Roster declared as global and imported into server.js
 
-exports.getAllTeams = (req, res) => {
-  Roster.find({}, (err, roster) => {
-    if (err) res.send(err);
-    res.json(roster);
+exports.getAllTeams = (req,res) => {
+  Roster.find({}).sort({league: 1, teamNumber: 1}).exec((err, teams) => {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(teams);
+    }
   });
 };
 

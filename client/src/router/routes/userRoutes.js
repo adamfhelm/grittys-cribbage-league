@@ -1,9 +1,11 @@
 
-import Standings from '@/views/currentStandings.vue';
+import Standings from '@/views/currentStandings.vue'
 import Roster from '@/views/teamSetup/roster.vue'
-import ShowTeam from '@/views/teamSetup/showTeam.vue';
-import EditTeam from '@/views/teamSetup/editTeam.vue';
-import NewTeam from '@/views/teamSetup/newTeam.vue';
+import ShowTeam from '@/views/teamSetup/showTeam.vue'
+import addTeamSchedule from '@/views/teamSetup/addTeamSchedule.vue'
+import editTeamSchedule from '@/views/teamSetup/editTeamSchedule.vue'
+import EditTeam from '@/views/teamSetup/editTeam.vue'
+import NewTeam from '@/views/teamSetup/newTeam.vue'
 
 const routes = [
 
@@ -21,6 +23,16 @@ const routes = [
     path: '/roster/:id',
     name: 'showTeam',
     component: ShowTeam
+  },
+  {
+    path: '/roster/add-team-schedule/:id',
+    name: 'addTeamSchedule',
+    component: addTeamSchedule
+  },
+  {
+    path: '/roster/edit-team-schedule/:id',
+    name: 'editTeamSchedule',
+    component: editTeamSchedule
   },
   {
     path: '/roster/:id/edit-team',

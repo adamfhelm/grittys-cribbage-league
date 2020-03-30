@@ -30,36 +30,36 @@ export default {
         return {
           totalWeeks: 0,
           startDate: null
-        };
+        }
       }
     }
   },
   data() {
     return {
       errorsPresent: false
-    };
+    }
   },
   methods: {
     onSubmit: function() {
-      const firstDate = new Date(this.schedule.startDate);
-      const startDate = new Date(this.schedule.startDate);
-      const days = 7;
+      const firstDate = new Date(this.schedule.startDate)
+      const startDate = new Date(this.schedule.startDate)
+      const days = 7
       if (this.schedule.totalWeeks === "") {
-        this.errorsPresent = true;
+        this.errorsPresent = true
       } else {
-          let weeksArr = [];
+          let weeksArr = []
         for(let i=1; i<=this.schedule.totalWeeks; i++) {
-            weeksArr.push(i);
+            weeksArr.push(i)
         }
-           this.$emit('createOrUpdate', weeksArr, firstDate, startDate, days);
+           this.$emit('createOrUpdate', weeksArr, firstDate, startDate, days)
       }
     }
   }
- };
+ }
 </script>
 
 <style scoped>
 .error {
-  color: red;
+  color: red
 }
 </style>

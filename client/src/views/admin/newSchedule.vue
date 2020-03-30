@@ -26,9 +26,8 @@ export default {
         days: days
       }
      
-     const res =  await api.createSchedule(newSchedule);   
-      this.flash('Schedule created with ' + res.week.weekId + ' total weeks', 'success');
-      //this.$router.push(`/schedule-setup/${res.week._id}`)
+     const res =  await api.createSchedule(newSchedule)
+      this.flash('Schedule created with ' + res.week.weekId + ' total weeks', 'success')
       this.$router.push(`/acl-schedule`)
     }
   }

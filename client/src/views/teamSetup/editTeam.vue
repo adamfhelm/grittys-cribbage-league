@@ -13,11 +13,11 @@ export default {
     return { team: {} };
   },
   methods: {
-     createOrUpdate: async function(team) {    
-         await api.updateTeam(team);    
-         this.flash('Team updated sucessfully!', 'success');    
-         this.$router.push(`/roster/${team._id}`);  
-         } 
+    createOrUpdate: async function(team) {
+      await api.updateTeam(team);
+      this.flash("Team updated sucessfully!", "success");
+      this.$router.push(`/roster/${team._id}`);
+    }
   },
   async mounted() {
     this.team = await api.getTeam(this.$route.params.id);

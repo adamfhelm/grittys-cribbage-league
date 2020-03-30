@@ -11,7 +11,7 @@ module.exports = (app) => {
         .get(RosterController.getAllTeams)
         .post(RosterController.addTeam);
 
-    router.route('/roster/:teamId')
+        router.route('/roster/:teamId')
         .get(RosterController.getTeam)
         .put(RosterController.updateTeam)
         .delete(RosterController.deleteTeam);

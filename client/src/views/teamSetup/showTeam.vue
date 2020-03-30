@@ -43,30 +43,17 @@
       </div>
       <input type="text" readonly :value="team.pegs" />
     </div>
-       <div class="ui labeled input fluid">
-      <div class="ui label pegs-padding">
-        <i class="thumbtack icon offset-2"></i> TeamID
-      </div>
-      <input type="text" placeholder="TeamID" v-model="team._id" />
-    </div>
-    <!-- <div class="ui labeled input fluid">
-      <div class="ui label">
-        <i class="flag checkered icon"></i> Leagues
-      </div>
-      <input type="text" readonly :value="team.league" />
-    </div>-->
     <div class="ui one column grid">
       <div class="actions">
         <router-link :to="{ name: 'editTeam', params: { id: this.$route.params.id }}">Edit Team</router-link>
-    </div>
-
+      </div>
       <router-link :to="{name: 'roster'}">
         <button class="ui green button delete" @click="onDestroy(team._id)">Delete Team</button>
       </router-link>
 
-      <!-- <td width="75" class="center aligned" @click.prevent="onDestroy(team._id)">
-          <a :href="`api/roster/${team._id}`">Destroy</a>
-      </td>-->
+      <router-link :to="{name: 'addTeamSchedule', params: {id: this.$route.params.id}}">
+        <button class="ui green button delete">Add Schedule</button>
+      </router-link>
     </div>
   </div>
 </template>

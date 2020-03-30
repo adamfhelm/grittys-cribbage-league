@@ -1,5 +1,5 @@
 
-const NCLSchedule = require('../controllers/scheduleControllers/NCLScheduleController');
+const Schedule = require('../controllers/scheduleControllers/ScheduleController');
 const WeeklyResults = require('../controllers/weeklyResultsControllers/addWeekController');
 const express = require('express');
 const router = express.Router();
@@ -11,23 +11,18 @@ module.exports = (app) => {
 
   //master schedule route
   router.route('/schedule')
-  .post(NCLSchedule.addNewSchedule)
-  .get(NCLSchedule.getAllWeeks)
+  .post(Schedule.addNewSchedule)
+  .get(Schedule.getAllWeeks)
 
   // update schedule with results of new week.
   router.route('/schedule')
   .put(WeeklyResults.addWeek)
 
-  router.route('/ncl/schedule')
-   // .get(NCLSchedule.getAllWeeks)
-   // .post(WeeklyResults.addWeek)
-    .delete(NCLSchedule.deleteAll);
+  // router.route('/crib-schedule')
+  //   .delete(Schedule.deleteAll);
 
-  router.route('/ncl/schedule/:weekId')
-    .get(NCLSchedule.getWeek)
-    .put(NCLSchedule.updateWeek)
-    .delete(NCLSchedule.deleteWeek);
-
+  router.route('/crib-schedule/:weekId')
+    .get(Schedule.getWeek)
 };
 
 
