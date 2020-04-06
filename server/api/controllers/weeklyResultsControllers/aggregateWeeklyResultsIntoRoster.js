@@ -16,12 +16,12 @@ const doMath = require('./helpers/mathController');
 exports.currentWeek = (req, res) => {
   // set teams array for cycling both teams in the match in the
   // "teams.forEach loop"
-  console.log("Team2", req.body.child[0].team2);
+  //console.log("Team2", req.body.child[0].team2);
   const teams = [req.body.child[0].team1, req.body.child[0].team2];
   // Assign the req.body to weekResults to hand off to the 
   // calculateTeamTotals method.
   const weekResults = req.body.child[0];
-  console.log("week results",weekResults);
+  //console.log("week results",weekResults);
   // loop through the teams array and update mongo
   teams.forEach(async (curTeam) => {
     
@@ -30,12 +30,12 @@ exports.currentWeek = (req, res) => {
     //console.log("teamObject", teamObject)
     // Assign reasults to the teamHistory.
     const teamHistory = teamObject;
-    console.log("teamHistory", teamHistory)
+   // console.log("teamHistory", teamHistory)
     // Send both teams, the current in the loop's history and
     // this week's results to the calculateTeamTotals method for caclulation.
     let teamRes = doMath.calculateTeamTotals(teams, teamHistory, weekResults);
     // assign caclulated results to the appropriate property
-     console.log("teamRes", teamRes);
+   //  console.log("teamRes", teamRes);
          
     req.body.wins = teamRes.wins;
     req.body.pts = teamRes.pts;
@@ -75,7 +75,7 @@ exports.currentWeek = (req, res) => {
 }
 // Get current team's historical data from Roster
 const getTeam = (req, res) => {
-  console.log("getTeamRequest", req)
+  //console.log("getTeamRequest", req)
   return Roster.findById(req, (err) => {
     if (err) res.send(err);
   });

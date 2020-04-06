@@ -17,7 +17,7 @@
       </sui-table-row>
     </sui-table-header>
     <sui-table-row v-for="(players, i) in allPlayers" :key="i">
-      <sui-table-cell>{{players.league}}{{i+1}}</sui-table-cell>
+      <sui-table-cell>{{players.league}}{{players.teamNumber}}</sui-table-cell>
       <sui-table-cell>{{ players.player1 }}&{{players.player2}}</sui-table-cell>
       <sui-table-cell selectable v-for="(week, j) in allDates" :key="j">
            <!-- calls views/admin/addWeek > components/gamePlay/WeekForm -->

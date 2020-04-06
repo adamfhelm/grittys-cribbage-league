@@ -12,17 +12,17 @@ const db = mongoose.connection;
 
 module.exports = (dbconfig) => {
 
-    mongoose.connect(
-             dbconfig.db,
-             { useNewUrlParser: true }
-           );
+  // mongoose.connect(
+  //   dbconfig.db,
+  //   { useNewUrlParser: true }
+  // );
 
-    mongoose.connect(dbconfig.db);
+  mongoose.connect(dbconfig.db);
 
 }
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {console.log('Database Opened')});
+db.once('open', () => { console.log('Database Opened') });
 
 mongoose.Promise = global.Promise;
 

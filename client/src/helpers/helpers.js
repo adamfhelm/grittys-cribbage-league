@@ -5,7 +5,7 @@ import 'vue-flash-message/dist/vue-flash-message.min.css'
 
 Vue.use(VueFlashMessage, {
     messageOptions: {
-        timeout: 3000,
+        timeout: 2000,
         pauseOnInteract: true
     }
 })

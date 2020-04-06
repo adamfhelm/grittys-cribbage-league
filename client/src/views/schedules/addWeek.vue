@@ -8,14 +8,15 @@ import WeekForm from '../../components/gamePlay/WeekForm.vue'
 import { api } from '../../helpers/helpers'
 export default {
   name: 'addWeek',
-  props: ['selectedTeam', "week", "match"],
   components: {
     'week-form': WeekForm
   },
   methods: {
     createOrUpdate: async function(week) {
-      const res = await api.updateWeek(week)
-      return res[0]._id
+        const res = await api.updateWeek(week)
+        this.$router.push(`/schedule`)
+        this.flash("Match successfully added", "success");
+        return res[0]._id
     }
   }
 }

@@ -26,8 +26,8 @@
         </div>
       </div>
     </div>
-    <div class="ui text container">
        <flash-message class="myFlash"></flash-message>
+    <div class="ui text container">
         <router-view />
       </div>
     
@@ -48,6 +48,7 @@ export default {
   position: absolute;
   top: 50;
   right: 0;
+  z-index: 1;
 }
 input {
   width: 300px;
