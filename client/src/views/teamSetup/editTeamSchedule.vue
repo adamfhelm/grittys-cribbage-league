@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div  class="ui text container">
     <h1>Edit {{team.player1}} & {{team.player2}}'s Schedule</h1>
     <team-form @createOrUpdate="createOrUpdate" :team="this.team"></team-form>
   </div>
 </template><script>
 import TeamScheduleForm from "../../components/teamSetup/EditTeamScheduleForm.vue";
-import { api } from "../../helpers/helpers";
+import { api } from "@/services/teamsService";
 export default {
   name: "editTeamSchedule",
   components: { "team-form": TeamScheduleForm },
   data: function() {
-    return { team: {} };
+    return { team: {}};
   },
   methods: {
      createOrUpdate: async function(team) {    

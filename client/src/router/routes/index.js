@@ -1,4 +1,4 @@
 import userRoutes from './userRoutes.js'
 import scheduleRoutes from './scheduleRoutes.js'
-
-export default userRoutes.concat(scheduleRoutes)
+import statisticsRoutes from './statisticsRoutes.js'
+export default userRoutes.concat(scheduleRoutes, statisticsRoutes)

@@ -1,4 +1,5 @@
 <template>
+<div class="ui text container">
  <form action="#" @submit.prevent="onSubmit">
     <p v-if="errorsPresent" class="error">Please fill out all fields!</p>
 
@@ -6,7 +7,7 @@
       <div class="ui label">
         <i class="calendar outline icon"></i>Week{{i+1}}
       </div>
-      <input type="text" placeholder="Enter player1 name..." v-model="team.schedule[i]" />
+      <input type="text" placeholder="FORMAT: team,team,LEAGUE" v-model="team.schedule[i]" />
     </div>
 
     
@@ -14,6 +15,7 @@
     <button class="green ui button">Submit</button>
      </div>
   </form>
+</div>
 </template>
 
 <script>
@@ -57,4 +59,7 @@ export default {
 .error {
   color: red;
 }
+div.ui.labeled.input.fluid {
+     border: none;
+      }
 </style>

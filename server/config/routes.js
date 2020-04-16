@@ -3,5 +3,6 @@ module.exports = (app) => {
     require('../api/routes/RosterRoutes')(app);
     require('../api/routes/StandingsRoutes')(app);
     require('../api/routes/MatchRoutes')(app);
+    //require('../api/routes/StaticRoute')(app);
     }
     

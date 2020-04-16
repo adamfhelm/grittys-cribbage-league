@@ -3,9 +3,11 @@ import App from './App.vue'
 import router from './router'
 
 import SuiVue from 'semantic-ui-vue';
+
+import VueChartJS from '@/views/statistics/StatisticsHome.vue'
 /* ... */
 
-Vue.use(SuiVue)
+Vue.use(SuiVue, VueChartJS)
 
 import 'semantic-ui-css/semantic.css';
 

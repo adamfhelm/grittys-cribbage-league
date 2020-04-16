@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ui text container">
     <h1>Team</h1>
     <div class="ui labeled input fluid">
       <div class="ui label">
@@ -48,17 +48,18 @@
         <router-link :to="{ name: 'editTeam', params: { id: this.$route.params.id }}">Edit Team</router-link>
       </div>
       <router-link :to="{name: 'roster'}">
-        <button class="ui green button delete" @click="onDestroy(team._id)">Delete Team</button>
+        <button class="ui red button" @click="onDestroy(team._id)">Delete Team</button>
       </router-link>
 
       <router-link :to="{name: 'addTeamSchedule', params: {id: this.$route.params.id}}">
-        <button class="ui green button delete">Add Schedule</button>
+        <button class="ui green button">Add Schedule</button>
       </router-link>
     </div>
   </div>
 </template>
 <script>
-import { api } from "../../helpers/helpers";
+
+import { api } from "@/services/teamsService";
 export default {
   name: "show",
   data() {
@@ -95,4 +96,7 @@ export default {
 .ui.label.pegs-padding {
   padding: 0px 1.55em 0px;
 }
+div.ui.labeled.input.fluid {
+     border: none;
+      }
 </style>

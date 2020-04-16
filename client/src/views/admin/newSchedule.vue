@@ -1,6 +1,6 @@
   
 <template>
-  <div>
+  <div class="ui text container">
     <h1>New Schedule</h1>
     <schedule-form @createOrUpdate="createOrUpdate"></schedule-form>
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 import ScheduleForm from "../../components/admin/ScheduleForm.vue";
-import { api } from "../../helpers/helpers";
+import { api } from "@/services/scheduleService";
 export default {
   name: "new-schedule",
   components: {

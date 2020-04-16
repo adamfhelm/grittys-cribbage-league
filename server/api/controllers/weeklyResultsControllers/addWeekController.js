@@ -65,20 +65,20 @@ exports.addWeek = (req, res) => {
   // 2. Save this week's match data.  Enable this in order to save
   // every match to the schedule collection.
 
-//   const newWeek = new Schedule(req.body)  
-//   newWeek.updateWeek = (req, res) => {
-//     Schedule.updateOne(
-//       { weekId: req.body.weekId },
-//       {$push: {child: req.body.child}},
-//       { upsert: true },
-//       (err, week) => {
-//         if (err) res.send(err);
-//        // res.json(week);
-//       }
-//     );
-//   };
+  const newWeek = new Schedule(req.body)  
+  newWeek.updateWeek = (req, res) => {
+    Schedule.updateOne(
+      { weekId: req.body.weekId },
+      {$push: {child: req.body.child}},
+      { upsert: true },
+      (err, week) => {
+        if (err) res.send(err);
+       // res.json(week);
+      }
+    );
+  };
 
-// newWeek.updateWeek(req,res)
+newWeek.updateWeek(req,res)
 
   // 3. Append current week results to the team's aggregate totals.
 

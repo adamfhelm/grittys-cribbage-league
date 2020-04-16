@@ -1,23 +1,22 @@
   
 <template>
-  <div>
+  <div class="ui text container">
     <h1>New Team</h1>
-    <team-form @createOrUpdate="createOrUpdate"></team-form>
+    <new-team-form @createOrUpdate="createOrUpdate"></new-team-form>
   </div>
 </template>
 
 <script>
-import TeamForm from '../../components/teamSetup/TeamForm.vue';
-import { api } from '../../helpers/helpers';
+import NewTeamForm from '../../components/teamSetup/NewTeamForm.vue';
+import { api } from "@/services/teamsService";
 export default {
   name: 'new-team',
   components: {
-    'team-form': TeamForm
+    'new-team-form': NewTeamForm
   },
   methods: {
     createOrUpdate: async function(team) {
       const res = await api.createTeam(team);
-      console.log(res.team._id)
       this.$router.push(`/roster/${res.team._id}`);
       this.flash('Team created', 'success');
     }

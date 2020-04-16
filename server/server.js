@@ -18,6 +18,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ 'extended': 'true' }));  // url data
 app.use(bodyParser.json()); // json data
 
+// Express directive to serve up the client folder statically:
+
+app.use(express.static(__dirname + '/dist'));
+
 // RESTful routes.
 
 require('./config/routes')(app);

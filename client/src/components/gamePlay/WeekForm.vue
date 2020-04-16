@@ -101,7 +101,7 @@
   </div>
 </template>
 <script>
-import { api } from "../../helpers/helpers";
+import { api } from "@/services/scheduleService";
 export default {
   data() {
     return {

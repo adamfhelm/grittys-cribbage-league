@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ui text container">
     
     <div class="ui one column grid">
   <div class="row center aligned">
@@ -32,18 +32,12 @@
         <td width="75" class="center aligned">
           <router-link :to="{ name: 'showTeam', params: { id: team._id }}">Show</router-link>
         </td>
-        <!-- <td width="75" class="center aligned">
-          <router-link :to="{ name: 'edit', params: { id: word._id }}">Edit</router-link>
-        </td>
-        <td width="75" class="center aligned" @click.prevent="onDestroy(word._id)">
-          <a :href="`/words/${word._id}`">Destroy</a>
-        </td> -->
       </tr>
     </table>
   </div>
 </template>
 <script>
-import { api } from "../../helpers/helpers"
+import { api } from "@/services/teamsService";
 export default {
     data() {
         return {
@@ -53,12 +47,6 @@ export default {
     async mounted() {
         this.teams = await api.getTeams()
      }
-    // methods: {
-    //   addTeam: function(name) {
-    //     name = "/roster/new-team"
-    //     this.$router.push(name) 
-    //   }
-    // }
 }
 </script>
 <style scoped>

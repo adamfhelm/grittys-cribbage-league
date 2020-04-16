@@ -10,7 +10,7 @@
     </div>
     <div class="ui labeled input fluid">
       <div class="ui label">
-        <i class="user outline icon"></i>Number of Weeks
+        <i class="user outline icon"></i>Total Weeks
       </div>
       <input type="number" placeholder="Number Of Weeks" v-model="schedule.totalWeeks" />
     </div>
@@ -62,4 +62,13 @@ export default {
 .error {
   color: red
 }
+div.ui.labeled.input.fluid {
+     border: none;
+     margin-bottom: 2em;
+      }
+div.ui.label {
+ 
+  text-align: center;
+}
+
 </style>

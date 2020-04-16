@@ -5,7 +5,7 @@
 </template>
 <script>
 import WeekForm from '../../components/gamePlay/WeekForm.vue'
-import { api } from '../../helpers/helpers'
+import { api } from '@/services/scheduleService'
 export default {
   name: 'addWeek',
   components: {

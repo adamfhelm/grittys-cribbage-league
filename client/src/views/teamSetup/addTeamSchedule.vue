@@ -1,11 +1,12 @@
 <template>
-  <div>
+ <div class="ui text container">
     <h1>Add Team Schedule {{team.player1}} & {{team.player2}}</h1> 
     <team-form @createOrUpdate="createOrUpdate" :team="team" :numWeeks="numWeeks"></team-form>
-  </div>
-</template><script>
+ </div>  
+</template>
+<script>
 import TeamScheduleForm from "../../components/teamSetup/TeamScheduleForm.vue";
-import { api } from "../../helpers/helpers";
+import { api } from "@/services/teamsService";
 export default {
   name: "addTeamSchedule",
   components: { "team-form": TeamScheduleForm },

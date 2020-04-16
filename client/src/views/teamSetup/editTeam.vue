@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="ui text container">
     <h1>Edit Team</h1>
-    <team-form @createOrUpdate="createOrUpdate" :team="this.team"></team-form>
+    <edit-team-form @createOrUpdate="createOrUpdate" :team="this.team"></edit-team-form>
   </div>
 </template><script>
-import TeamForm from "../../components/teamSetup/TeamForm.vue";
-import { api } from "../../helpers/helpers";
+import EditTeamForm from "../../components/teamSetup/EditTeamForm.vue";
+import { api } from "@/services/teamsService"
 export default {
   name: "edit",
-  components: { "team-form": TeamForm },
+  components: { "edit-team-form": EditTeamForm },
   data: function() {
     return { team: {} };
   },

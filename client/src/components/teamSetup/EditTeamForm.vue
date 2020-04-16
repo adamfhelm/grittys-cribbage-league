@@ -99,4 +99,7 @@ export default {
 .error {
   color: red;
 }
+div.ui.labeled.input.fluid {
+     border: none;
+      }
 </style>

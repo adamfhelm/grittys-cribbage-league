@@ -12,6 +12,9 @@
        <router-link to="/schedule" exact class="item">
             <i class="calendar icon"></i> Schedule
           </router-link>
+       <router-link to="/statistics" exact class="item">
+            <i class="chart line icon"></i> Stats
+          </router-link>
         <!-- <sui-dropdown-item><router-link :to="{name: 'nclSchedule'}" class="dropdown">NCL</router-link></sui-dropdown-item> -->
     <sui-dropdown text="Admin" button pointing>
       <sui-dropdown-menu>
@@ -27,9 +30,9 @@
       </div>
     </div>
        <flash-message class="myFlash"></flash-message>
-    <div class="ui text container">
+    
         <router-view />
-      </div>
+   
     
   </div>
 </template>
